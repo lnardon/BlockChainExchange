@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: MIT
-pragma solidity ^0.5.16;
+pragma solidity ^0.5.0;
 
-import './NRDToken.sol';
+import "./NRDToken.sol";
 
 contract EthSwap {
     string public name = "NRD BlockChain Exchange";

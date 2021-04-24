@@ -7,12 +7,12 @@ require("chai")
   .use(require("chai-as-promised"))
   .should();
 
-contract("EthSwap", accounts => {
+contract("EthSwap", ([deployer, investor]) => {
   let nrdToken, ethSwap;
 
   before(async () => {
-    ethSwap = await EthSwap.new();
     nrdToken = await NRDToken.new();
+    ethSwap = await EthSwap.new(nrdToken.address);
     await nrdToken.transfer(ethSwap.address, "1000000000000000000000000");
   });
 
@@ -32,6 +32,17 @@ contract("EthSwap", accounts => {
     it("should display the contract's total token amount", async () => {
       const balance = await nrdToken.balanceOf(ethSwap.address);
       assert.equal(balance.toString(), "1000000000000000000000000");
+    });
+  });
+
+  describe("buyTokens()", async () => {
+    it("should allow the user to purchase tokens and receive tokens", async () => {
+      let result = await ethSwap.buyTokens({
+        from: investor,
+        value: web3.utils.toWei("1", "ether")
+      });
+      let balance = await nrdToken.balanceOf(investor);
+      assert.equal(balance.toString(), "100000000000000000000");
     });
   });
 });
