@@ -1,5 +1,4 @@
 const { assert } = require("chai");
-
 const EthSwap = artifacts.require("EthSwap");
 const NRDToken = artifacts.require("NRDToken");
 
@@ -37,12 +36,21 @@ contract("EthSwap", ([deployer, investor]) => {
 
   describe("buyTokens()", async () => {
     it("should allow the user to purchase tokens and receive tokens", async () => {
-      let result = await ethSwap.buyTokens({
+      await ethSwap.buyTokens({
         from: investor,
         value: web3.utils.toWei("1", "ether")
       });
-      let balance = await nrdToken.balanceOf(investor);
-      assert.equal(balance.toString(), "100000000000000000000");
+
+      // Check investor balance
+      let investorBalance = await nrdToken.balanceOf(investor);
+      assert.equal(investorBalance.toString(), "100000000000000000000");
+
+      // Check EthSwap NRDToken balance
+      let ethSwapBalance = await nrdToken.balanceOf(ethSwap.address);
+      assert.equal(ethSwapBalance.toString(), "999900000000000000000000");
+      // Check EthSwap Ethereum balance
+      ethSwapBalance = await web3.eth.getBalance(ethSwap.address);
+      assert.equal(ethSwapBalance.toString(), web3.utils.toWei("1", "ether"));
     });
   });
 });
