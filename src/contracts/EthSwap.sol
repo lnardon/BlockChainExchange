@@ -8,6 +8,13 @@ contract EthSwap {
     NRDToken public token;
     uint public rate = 100;
 
+    event TokenPurchase(
+        address account,
+        address token,
+        uint amount,
+        uint rate
+    );
+
     constructor(NRDToken _token) public {
         token = _token;
     }
@@ -15,5 +22,8 @@ contract EthSwap {
     function buyTokens() public payable {
         uint tokenAmount = msg.value * rate;
         token.transfer(msg.sender, tokenAmount);
+
+        // Emit token purchase event
+        emit TokenPurchase(msg.sender, address(token), tokenAmount, rate);
     }
 }
