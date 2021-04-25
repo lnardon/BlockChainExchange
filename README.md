@@ -1,5 +1,12 @@
 # BlockChain Exchange
 
+A BlockChain exchange and a custom ERC-20 Token based on ethereum smart contracts.
+Inspired by UniSwap.
+
+## Disclaimer
+
+This is only a side project, NRDToken and the NRD BlockChain Exchange are not official products and don't have any real value.
+
 ## Installation
 
 Clone the repository
