@@ -53,4 +53,29 @@ contract("EthSwap", ([deployer, investor]) => {
       assert.equal(ethSwapBalance.toString(), web3.utils.toWei("1", "ether"));
     });
   });
+
+  describe("sellTokens()", async () => {
+    before(async () => {
+      await nrdToken.approve(ethSwap.address, "100000000000000000000", {
+        from: investor
+      });
+      await ethSwap.sellTokens("100000000000000000000", {
+        from: investor
+      });
+    });
+
+    it("should allow the user to sell tokens to the exchange", async () => {
+      // Check investor balance after tokens sold
+      let investorBalance = await nrdToken.balanceOf(investor);
+      assert.equal(investorBalance.toString(), "0");
+
+      // Check EthSwap NRDToken balance after tokens purchase
+      let ethSwapBalance = await nrdToken.balanceOf(ethSwap.address);
+      assert.equal(ethSwapBalance.toString(), "1000000000000000000000000");
+
+      // Check EthSwap Ethereum balance after tokens purchase
+      ethSwapBalance = await web3.eth.getBalance(ethSwap.address);
+      assert.equal(ethSwapBalance.toString(), web3.utils.toWei("0", "ether"));
+    });
+  });
 });
