@@ -45,10 +45,10 @@ contract EthSwap {
         // Make sure the contract has the amount ether to buy the tokens.
         require(address(this).balance >= _amount / rate);
 
-        token.transferFrom(msg.sender, address(this), token_amount);
+        token.transferFrom(msg.sender, address(this), _amount);
         msg.sender.transfer(_amount / rate);
 
         // Emit tokens sold event
-        emit TokensSold(msg.sender, address(token), tokenAmount, rate);
+        emit TokensSold(msg.sender, address(token), _amount, rate);
     }
 }
