@@ -8,7 +8,14 @@ contract EthSwap {
     NRDToken public token;
     uint public rate = 100;
 
-    event TokenPurchase(
+    event TokensPurchased(
+        address account,
+        address token,
+        uint amount,
+        uint rate
+    );
+
+    event TokensSold(
         address account,
         address token,
         uint amount,
@@ -21,9 +28,24 @@ contract EthSwap {
 
     function buyTokens() public payable {
         uint tokenAmount = msg.value * rate;
+
+        // Make sure the contract has the amount of tokens to sell.
+        require(token.balanceOf(address(this)) >= tokenAmount);
+
         token.transfer(msg.sender, tokenAmount);
 
-        // Emit token purchase event
-        emit TokenPurchase(msg.sender, address(token), tokenAmount, rate);
+        // Emit tokens purchased event
+        emit TokensPurchased(msg.sender, address(token), tokenAmount, rate);
+    }
+
+    function sellTokens(uint _amount) public {
+        // Make sure the contract has the amount ether to buy the tokens.
+        require(address(this).balance >= _amount / rate);
+
+        token.transferFrom(msg.sender, address(this), token_amount);
+        msg.sender.transfer(_amount / rate);
+
+        // Emit tokens sold event
+        emit TokensSold(msg.sender, address(token), tokenAmount, rate);
     }
 }
