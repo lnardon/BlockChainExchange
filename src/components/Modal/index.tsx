@@ -1,9 +1,10 @@
+import { ReactNode } from "react";
 import Modal from "react-modal";
 
 interface PropsInterface {
   isOpen: boolean;
   handleClose: () => {};
-  renderProps: () => {};
+  renderProps: ReactNode;
 }
 
 const BaseModal: any = ({
@@ -13,7 +14,7 @@ const BaseModal: any = ({
 }: PropsInterface) => {
   return (
     <Modal isOpen={isOpen} onRequestClose={handleClose}>
-      {renderProps()}
+      {renderProps}
     </Modal>
   );
 };

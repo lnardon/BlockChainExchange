@@ -51,7 +51,7 @@ function App() {
       case 0:
         return <h1>Zero</h1>;
       default:
-        return null;
+        return <h1>Zero</h1>;
     }
   }
 
@@ -62,6 +62,7 @@ function App() {
         handleClose={() => setIsOpen(false)}
         renderProps={modalContent}
       />
+      <h2>NRDT Decentralized Exchange</h2>
     </>
   );
 }
