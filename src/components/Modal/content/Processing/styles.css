@@ -1,0 +1,17 @@
+.processingContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 2rem 0rem;
+}
+
+.processingTitle {
+  font-size: 1.75rem;
+  color: #fafafa;
+}
+
+.loader {
+  width: 100px;
+  margin: 1rem 0rem;
+}
