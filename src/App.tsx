@@ -63,6 +63,8 @@ function App() {
         renderProps={modalContent}
       />
       <h2>NRDT Decentralized Exchange</h2>
+      <button onClick={activate}> Connect Wallet</button>
+      {account}
     </>
   );
 }
