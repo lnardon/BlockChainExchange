@@ -1,0 +1,35 @@
+.appContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.title {
+  font-size: 3rem;
+  line-height: 3.25rem;
+  text-align: center;
+  padding: 5rem 2rem;
+  margin: 5rem 0rem;
+  color: #84d98a;
+  max-width: 600px;
+}
+
+.connectWalletBtn {
+  padding: 0.5rem 1rem;
+  background-color: #5b5df9;
+  cursor: pointer;
+}
+
+.modalBtn {
+  padding: 0.5rem 1rem;
+  font-weight: bold;
+  font-weight: 1rem;
+  cursor: pointer;
+  margin: 1rem;
+  transition: all 0.3s ease;
+}
+
+.modalBtn:hover {
+  transform: scale(1.1);
+}

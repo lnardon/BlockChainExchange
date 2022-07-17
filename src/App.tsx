@@ -1,5 +1,6 @@
 import { useState } from "react";
 import Web3 from "web3";
+import "./App.css";
 
 import Modal from "./components/Modal";
 
@@ -41,31 +42,52 @@ function App() {
     return true;
   }
 
-  function openModal(modalIndex: number) {
+  function handleModal(modalIndex: number) {
     setModalContentIndex(modalIndex);
     setIsOpen(true);
   }
 
   function modalContent() {
     switch (modalContentIndex) {
-      case 0:
-        return <h1>Zero</h1>;
+      case 1:
+        return <h1>Buy NRDT</h1>;
+      case 2:
+        return <h1>Sell NRDT</h1>;
       default:
         return <h1>Zero</h1>;
     }
   }
 
   return (
-    <>
+    <div className="appContainer">
+      <h1 className="title">NRDT Decentralized Exchange</h1>
+      {account ? null : (
+        <button className="connectWalletBtn" onClick={activate}>
+          Connect Wallet
+        </button>
+      )}
+      {account}
+
+      {account ? (
+        <div>
+          <div></div>
+          <div className="modalButtons">
+            <button className="modalBtn" onClick={() => handleModal(1)}>
+              Buy NRDT
+            </button>
+            <button className="modalBtn" onClick={() => handleModal(2)}>
+              Sell NRDT
+            </button>
+          </div>
+        </div>
+      ) : null}
+
       <Modal
         isOpen={isOpen}
         handleClose={() => setIsOpen(false)}
         renderProps={modalContent}
       />
-      <h2>NRDT Decentralized Exchange</h2>
-      <button onClick={activate}> Connect Wallet</button>
-      {account}
-    </>
+    </div>
   );
 }
 
