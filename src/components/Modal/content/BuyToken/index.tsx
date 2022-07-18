@@ -1,19 +1,16 @@
-import Web3 from "web3";
+import { useState } from "react";
 import "./styles.css";
 
 interface IBuyToken {
-  web3: Web3;
+  buyTokens: (amount: number) => {};
 }
 
-const BuyToken = ({ web3 }: IBuyToken) => {
-  function buyTokens() {
-    console.log(web3.version);
-  }
-
+const BuyToken = ({ buyTokens }: IBuyToken) => {
+  const [amount, setAmount] = useState(1);
   return (
     <div className="buyTokenContainer">
       <h1 className="buyTokenTitle">Buy NRDT</h1>
-      <button onClick={buyTokens}>CLick here</button>
+      <button onClick={() => buyTokens(amount)}>Buy 1 NRDT</button>
     </div>
   );
 };
