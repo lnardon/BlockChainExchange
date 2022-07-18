@@ -3,6 +3,7 @@ import Web3 from "web3";
 import "./App.css";
 
 import Modal from "./components/Modal";
+import BuyToken from "./components/Modal/content/BuyToken";
 import Processing from "./components/Modal/content/Processing";
 
 declare global {
@@ -51,7 +52,7 @@ function App() {
   function modalContent() {
     switch (modalContentIndex) {
       case 1:
-        return <h1>Buy NRDT</h1>;
+        return <BuyToken web3={web3} />;
       case 2:
         return <h1>Sell NRDT</h1>;
       case 3:
