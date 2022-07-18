@@ -3,6 +3,7 @@ import Web3 from "web3";
 import "./App.css";
 
 import Modal from "./components/Modal";
+import Processing from "./components/Modal/content/Processing";
 
 declare global {
   interface Window {
@@ -53,6 +54,8 @@ function App() {
         return <h1>Buy NRDT</h1>;
       case 2:
         return <h1>Sell NRDT</h1>;
+      case 3:
+        return <Processing />;
       default:
         return <h1>Zero</h1>;
     }
