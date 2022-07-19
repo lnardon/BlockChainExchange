@@ -6,6 +6,7 @@ import "./App.css";
 
 import Modal from "./components/Modal";
 import BuyToken from "./components/Modal/content/BuyToken";
+import SellToken from "./components/Modal/content/SellToken";
 import Processing from "./components/Modal/content/Processing";
 
 declare global {
@@ -76,16 +77,36 @@ function App() {
     }
   }
 
+  async function sellTokens(amount: number) {
+    if (isLoggedIn()) {
+      try {
+        setModalContentIndex(3);
+        setIsOpen(true);
+        let response = await contractInteraction.methods
+          .sellTokens()
+          .send({ from: account, value: amount });
+        alert(response);
+        console.log(response);
+      } catch (err: any) {
+        alert(err.message);
+        console.log(err.message);
+      }
+      setIsOpen(false);
+    } else {
+      alert("Please connect your Metamask Wallet.");
+    }
+  }
+
   function modalContent() {
     switch (modalContentIndex) {
       case 1:
         return <BuyToken buyTokens={buyTokens} />;
       case 2:
-        return <h1>Sell NRDT</h1>;
+        return <SellToken sellTokens={sellTokens} />;
       case 3:
         return <Processing />;
       default:
-        return <h1>Zero</h1>;
+        return null;
     }
   }
 
@@ -97,8 +118,6 @@ function App() {
           Connect Wallet
         </button>
       )}
-      {account}
-
       {account ? (
         <div>
           <div></div>
