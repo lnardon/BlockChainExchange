@@ -1,8 +1,11 @@
 import { useState } from "react";
 import Web3 from "web3";
+import { AbiItem } from "web3-utils";
+import EthSwap from "./contracts/EthSwap.json";
 import "./App.css";
 
 import Modal from "./components/Modal";
+import BuyToken from "./components/Modal/content/BuyToken";
 import Processing from "./components/Modal/content/Processing";
 
 declare global {
@@ -13,6 +16,11 @@ declare global {
 
 function App() {
   const [web3, setWeb3] = useState(new Web3());
+  const contractAddress = "0x7A614d0A3d4de47c884225515274beda0C48c4b9";
+  const contractInteraction = new web3.eth.Contract(
+    EthSwap.abi as AbiItem[],
+    contractAddress
+  );
   const [account, setAccount] = useState("");
   const [isOpen, setIsOpen] = useState(false);
   const [modalContentIndex, setModalContentIndex] = useState(7);
@@ -48,10 +56,30 @@ function App() {
     setIsOpen(true);
   }
 
+  async function buyTokens(amount: number) {
+    if (isLoggedIn()) {
+      try {
+        setModalContentIndex(3);
+        setIsOpen(true);
+        let response = await contractInteraction.methods
+          .buyTokens()
+          .send({ from: account, value: amount });
+        alert(response);
+        console.log(response);
+      } catch (err: any) {
+        alert(err.message);
+        console.log(err.message);
+      }
+      setIsOpen(false);
+    } else {
+      alert("Please connect your Metamask Wallet.");
+    }
+  }
+
   function modalContent() {
     switch (modalContentIndex) {
       case 1:
-        return <h1>Buy NRDT</h1>;
+        return <BuyToken buyTokens={buyTokens} />;
       case 2:
         return <h1>Sell NRDT</h1>;
       case 3:

@@ -1,0 +1,30 @@
+.buyTokenContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 2rem;
+}
+
+.buyTokenTitle {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #fafafa;
+  margin-bottom: 3rem;
+}
+
+.buyTokenInput {
+  margin-bottom: 2rem;
+  padding: 0.5rem;
+  font-size: 0.85rem;
+}
+
+.buyBtn {
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  font-weight: bold;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  border-radius: 0.25rem;
+}
