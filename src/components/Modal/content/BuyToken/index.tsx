@@ -7,10 +7,19 @@ interface IBuyToken {
 
 const BuyToken = ({ buyTokens }: IBuyToken) => {
   const [amount, setAmount] = useState(1);
+
   return (
     <div className="buyTokenContainer">
       <h1 className="buyTokenTitle">Buy NRDT</h1>
-      <button onClick={() => buyTokens(amount)}>Buy 1 NRDT</button>
+      <input
+        className="buyTokenInput"
+        type="number"
+        value={amount}
+        onChange={(e) => setAmount(parseInt(e.target.value))}
+      />
+      <button className="buyBtn" onClick={() => buyTokens(amount)}>
+        Buy 1 NRDT
+      </button>
     </div>
   );
 };
