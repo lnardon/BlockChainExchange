@@ -1,0 +1,13 @@
+.closeIcon {
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+  height: 2rem;
+  filter: invert(100);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.closeIcon:hover {
+  transform: scale(1.1);
+}
