@@ -1,7 +1,7 @@
 import { useState } from "react";
 import Web3 from "web3";
 import { AbiItem } from "web3-utils";
-import EthSwap from "./contracts/EthSwap.json";
+import NRDTDEX from "./contracts/NRDTDEX.json";
 import "./App.css";
 
 import Modal from "./components/Modal";
@@ -19,7 +19,7 @@ function App() {
   const [web3, setWeb3] = useState(new Web3());
   const contractAddress = "0x7A614d0A3d4de47c884225515274beda0C48c4b9";
   const contractInteraction = new web3.eth.Contract(
-    EthSwap.abi as AbiItem[],
+    NRDTDEX.abi as AbiItem[],
     contractAddress
   );
   const [account, setAccount] = useState("");
