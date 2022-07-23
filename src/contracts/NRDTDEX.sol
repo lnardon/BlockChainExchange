@@ -49,7 +49,7 @@ contract NRDTDEX {
         require(address(this).balance >= _amount * rate, "The contract curretly has not enough ether to buy back the tokens.");
 
         token.transferFrom(msg.sender, address(this), _amount);
-        payable(msg.sender).transfer(_amount);
+        payable(msg.sender).transfer(_amount * rate);
 
         // Emit tokens sold event
         emit TokensSold(msg.sender, address(token), _amount, rate);

@@ -43,7 +43,7 @@ function App() {
         setNrdtBalance(response);
       })();
     }
-  }, [account]);
+  }, [account, tokenInteraction.methods]);
 
   async function activate() {
     if (window.ethereum) {
