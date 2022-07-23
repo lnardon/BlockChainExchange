@@ -18,7 +18,7 @@ const SellToken = ({ sellTokens }: ISellToken) => {
         onChange={(e) => setAmount(parseInt(e.target.value))}
       />
       <button className="buyBtn" onClick={() => sellTokens(amount)}>
-        Sell 1 NRDT
+        Sell NRDT
       </button>
     </div>
   );

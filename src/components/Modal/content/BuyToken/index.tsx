@@ -18,7 +18,7 @@ const BuyToken = ({ buyTokens }: IBuyToken) => {
         onChange={(e) => setAmount(parseInt(e.target.value))}
       />
       <button className="buyBtn" onClick={() => buyTokens(amount)}>
-        Buy 1 NRDT
+        Buy NRDT
       </button>
     </div>
   );

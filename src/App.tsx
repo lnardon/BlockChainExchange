@@ -9,6 +9,8 @@ import Modal from "./components/Modal";
 import BuyToken from "./components/Modal/content/BuyToken";
 import SellToken from "./components/Modal/content/SellToken";
 import Processing from "./components/Modal/content/Processing";
+import NRDTLogo from "./assets/NRDTLogo.png";
+import EthLogo from "./assets/EthLogo.png";
 
 declare global {
   interface Window {
@@ -18,6 +20,12 @@ declare global {
 
 function App() {
   const [web3, setWeb3] = useState(new Web3());
+  const [account, setAccount] = useState("");
+  const [isOpen, setIsOpen] = useState(false);
+  const [ethBalance, setEthBalance] = useState("");
+  const [nrdtBalance, setNrdtBalance] = useState("");
+  const [modalContentIndex, setModalContentIndex] = useState(7);
+
   const contractAddress = "0xf78B6cC281A3856de0CDbFe3Ddfe992CC8ec6a73";
   const nrdtAddress = "0xc4afF16D64e2508fc7338708BB31466154947596";
   const contractInteraction = new web3.eth.Contract(
@@ -28,11 +36,6 @@ function App() {
     NRDToken.abi as AbiItem[],
     nrdtAddress
   );
-  const [account, setAccount] = useState("");
-  const [isOpen, setIsOpen] = useState(false);
-  const [ethBalance, setEthBalance] = useState("");
-  const [nrdtBalance, setNrdtBalance] = useState("");
-  const [modalContentIndex, setModalContentIndex] = useState(7);
 
   useEffect(() => {
     if (account) {
@@ -134,18 +137,30 @@ function App() {
   return (
     <div className="appContainer">
       <h1 className="title">NRDT Decentralized Exchange</h1>
-      {account ? null : (
+      {account ? (
+        <div className="balanceContainer">
+          <h3>Wallet Balance</h3>
+          {ethBalance && (
+            <div className="balanceDiv">
+              <div className="balanceDivIcon">
+                <img className="balanceIcon" src={EthLogo} alt="Eth Logo" />
+              </div>
+              <h3 className="balanceValue">{ethBalance.slice(0, 7)}</h3>
+            </div>
+          )}
+          {nrdtBalance && (
+            <div className="balanceDiv">
+              <div className="balanceDivIcon">
+                <img className="balanceIcon" src={NRDTLogo} alt="NRDT Logo" />
+              </div>
+              <h3 className="balanceValue">{nrdtBalance}</h3>
+            </div>
+          )}
+        </div>
+      ) : (
         <button className="connectWalletBtn" onClick={activate}>
           Connect Wallet
         </button>
-      )}
-      {ethBalance && (
-        <h3 style={{ color: "white" }}>
-          Ethereum Balance: {ethBalance.slice(0, 7)}
-        </h3>
-      )}
-      {nrdtBalance && (
-        <h3 style={{ color: "white" }}>NRDT Balance: {nrdtBalance}</h3>
       )}
       {account ? (
         <div>
