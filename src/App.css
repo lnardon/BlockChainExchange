@@ -87,16 +87,20 @@
 }
 
 .modalBtn {
-  padding: 0.5rem 1rem;
+  padding: 0.75rem 1.5rem;
   font-weight: bold;
-  font-weight: 1rem;
+  font-size: 1rem;
   cursor: pointer;
   margin: 1rem;
   transition: all 0.3s ease;
+  background-color: #57ff62;
+  outline: none;
+  border-radius: 0.25rem;
+  border: none;
 }
 
 .modalBtn:hover {
-  transform: scale(1.1);
+  transform: scale(1.05);
 }
 
 @media (max-width: 699px) {

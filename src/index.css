@@ -31,8 +31,10 @@ body {
   top: 50% !important;
   left: 50% !important;
   transform: translate(-50%, -50%);
-  width: 100%;
+  width: auto;
   max-width: 600px;
   background-color: #131313 !important;
   border-radius: 0.75rem !important;
+  padding: 2rem !important;
+  inset: none !important;
 }

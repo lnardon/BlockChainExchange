@@ -9,16 +9,26 @@ const SellToken = ({ sellTokens }: ISellToken) => {
   const [amount, setAmount] = useState(1);
 
   return (
-    <div className="sellTokenContainer">
-      <h1 className="sellTokenTitle">Sell NRDT</h1>
-      <input
-        className="sellTokenInput"
-        type="number"
-        value={amount}
-        onChange={(e) => setAmount(parseInt(e.target.value))}
-      />
-      <button className="buyBtn" onClick={() => sellTokens(amount)}>
-        Sell NRDT
+    <div className="modalContainer">
+      <h1 className="modalTitle">Sell NRDT</h1>
+      <div className="modalAmountContainer">
+        <button
+          className="modalAmountBtn"
+          onClick={() => setAmount(amount - 1)}
+        >
+          -
+        </button>
+        <div className="modalAmountLabel">{amount}</div>
+        <button
+          className="modalAmountBtn"
+          onClick={() => setAmount(amount + 1)}
+        >
+          +
+        </button>
+      </div>
+
+      <button className="modalBtn" onClick={() => sellTokens(amount)}>
+        Buy NRDT
       </button>
     </div>
   );
