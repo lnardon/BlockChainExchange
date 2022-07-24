@@ -139,23 +139,22 @@ function App() {
       <h1 className="title">NRDT Decentralized Exchange</h1>
       {account ? (
         <div className="balanceContainer">
-          <h3>Wallet Balance</h3>
-          {ethBalance && (
-            <div className="balanceDiv">
-              <div className="balanceDivIcon">
-                <img className="balanceIcon" src={EthLogo} alt="Eth Logo" />
-              </div>
-              <h3 className="balanceValue">{ethBalance.slice(0, 7)}</h3>
+          <div className="balanceDiv">
+            <div className="balanceDivIcon">
+              <img className="balanceIcon" src={EthLogo} alt="Eth Logo" />
+              <h4 className="balanceLabel">Ethereum</h4>
             </div>
-          )}
-          {nrdtBalance && (
-            <div className="balanceDiv">
-              <div className="balanceDivIcon">
-                <img className="balanceIcon" src={NRDTLogo} alt="NRDT Logo" />
-              </div>
-              <h3 className="balanceValue">{nrdtBalance}</h3>
+            <h3 className="balanceValue">
+              {ethBalance ? ethBalance.slice(0, 7) : "-"}
+            </h3>
+          </div>
+          <div className="balanceDiv">
+            <div className="balanceDivIcon">
+              <img className="balanceIcon" src={NRDTLogo} alt="NRDT Logo" />
+              <h4 className="balanceLabel">NRD Token</h4>
             </div>
-          )}
+            <h3 className="balanceValue">{nrdtBalance ? nrdtBalance : "-"}</h3>
+          </div>
         </div>
       ) : (
         <button className="connectWalletBtn" onClick={activate}>

@@ -36,33 +36,54 @@
 }
 
 .balanceContainer {
+  display: flex;
   padding: 2rem;
   background-color: rgb(45, 45, 45);
   border-radius: 0.25rem;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
 .balanceDiv {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  padding: 0.75rem 1rem;
+  justify-content: center;
+  flex-direction: column;
+  padding: 1rem;
   background-color: #4b4b4b;
   border-radius: 0.25rem;
-  margin-bottom: 1rem;
+  margin: 1rem;
+  border: 2px solid #fafafa;
+  width: 225px;
 }
 
 .balanceDivIcon {
+  width: 100%;
+  border-bottom: 1px solid #fafafa;
+  margin-bottom: 1.25rem;
+  padding-bottom: 0.5rem;
+  display: flex;
+  align-items: center;
 }
 
 .balanceIcon {
-  height: 35px;
+  height: 1.5rem;
+}
+
+.balanceLabel {
+  color: #fafafa;
+  margin-left: 0.5rem;
+  font-size: 1.25rem;
+  font-weight: 500;
 }
 
 .balanceValue {
-  font-size: 1.5rem;
-  font-weight: bold;
-  color: #fafafa;
-  margin-left: 4rem;
+  width: 100%;
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: #57ff62;
+  text-align: end;
 }
 
 .modalBtn {
@@ -76,4 +97,11 @@
 
 .modalBtn:hover {
   transform: scale(1.1);
+}
+
+@media (max-width: 699px) {
+  .balanceContainer {
+    padding: 1rem;
+    width: min-content;
+  }
 }
