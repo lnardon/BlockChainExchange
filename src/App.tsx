@@ -89,11 +89,9 @@ function App() {
         let response = await contractInteraction.methods
           .buyTokens(amount)
           .send({ from: account, value: amount * 10000000000000000 });
-        alert(response);
-        console.log(response);
+        alert("Operation executed!");
       } catch (err: any) {
         alert(err.message);
-        console.log(err.message);
       }
       setIsOpen(false);
     } else {
@@ -109,11 +107,9 @@ function App() {
         let response = await contractInteraction.methods
           .sellTokens(amount)
           .send({ from: account, value: 0 });
-        alert(response);
-        console.log(response);
+        alert("Operation executed!");
       } catch (err: any) {
         alert(err.message);
-        console.log(err.message);
       }
       setIsOpen(false);
     } else {
