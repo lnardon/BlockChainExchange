@@ -1,6 +1,8 @@
 import { useState } from "react";
 import "./styles.css";
 
+import ArrowIcon from "../../../../assets/arrow.svg";
+
 interface ISellToken {
   sellTokens: (amount: number) => {};
 }
@@ -14,21 +16,23 @@ const SellToken = ({ sellTokens }: ISellToken) => {
       <div className="modalAmountContainer">
         <button
           className="modalAmountBtn"
-          onClick={() => setAmount(amount - 1)}
+          onClick={() => {
+            if (amount > 0) setAmount(amount - 1);
+          }}
         >
-          -
+          <img className="modalArrow down" src={ArrowIcon} alt="Arrow down" />
         </button>
         <div className="modalAmountLabel">{amount}</div>
         <button
           className="modalAmountBtn"
           onClick={() => setAmount(amount + 1)}
         >
-          +
+          <img className="modalArrow" src={ArrowIcon} alt="Arrow up" />
         </button>
       </div>
 
       <button className="modalBtn" onClick={() => sellTokens(amount)}>
-        Buy NRDT
+        Sell
       </button>
     </div>
   );
