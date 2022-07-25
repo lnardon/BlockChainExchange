@@ -14,6 +14,7 @@
   margin: 2rem 0rem;
   color: #57ff62;
   max-width: 600px;
+  animation: slideUp 0.7s ease forwards;
 }
 
 .balanceTitle {
@@ -35,6 +36,7 @@
   border: 3px solid transparent;
   outline: none;
   transition: all 0.3s ease;
+  animation: appear 0.9s ease forwards;
 }
 
 .connectWalletBtn:hover {
@@ -53,6 +55,7 @@
   flex-wrap: wrap;
   justify-content: space-between;
   width: 100%;
+  animation: slideDown 0.5s cubic-bezier(0.075, 0.82, 0.165, 1) forwards;
 }
 
 .balanceDiv {
@@ -111,6 +114,7 @@
   outline: none;
   border-radius: 0.25rem;
   border: none;
+  animation: appear 0.5s ease forwards;
 }
 
 .exchangeBtn:hover {
@@ -130,5 +134,50 @@
     line-height: 2.5rem;
     padding: 0.5rem;
     margin: 5rem 0rem 2rem 0rem;
+  }
+}
+
+/* ANIMATION */
+@keyframes appear {
+  from {
+    opacity: 0;
+    transform: scale(0.85);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    clip-path: polygon(0% 0%, 0% 0%, 100% 0%, 100% 0%);
+  }
+  to {
+    opacity: 1;
+    clip-path: polygon(0% 0%, 0% 100%, 100% 100%, 100% 0%);
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    clip-path: polygon(0% 100%, 0% 100%, 100% 100%, 100% 100%);
+  }
+  to {
+    opacity: 1;
+    clip-path: polygon(0% 0%, 0% 100%, 100% 100%, 100% 0%);
+  }
+}
+
+@keyframes modalIn {
+  from {
+    opacity: 0;
+    clip-path: polygon(0% 0%, 0% 0%, 100% 0%, 100% 0%);
+  }
+  to {
+    opacity: 1;
+    clip-path: polygon(0% 0%, 0% 100%, 100% 100%, 100% 0%);
   }
 }

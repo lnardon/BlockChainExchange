@@ -36,4 +36,5 @@ body {
   background-color: #131313 !important;
   border-radius: 0.75rem !important;
   padding: 2rem !important;
+  animation: modalIn 0.7s cubic-bezier(0.075, 0.82, 0.165, 1);
 }
