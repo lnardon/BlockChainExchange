@@ -5,6 +5,7 @@ import NRDToken from "./contracts/NRDToken.json";
 import NRDTDEX from "./contracts/NRDTDEX.json";
 import "./App.css";
 
+import ConversionRate from "./components/ConversionRate";
 import Modal from "./components/Modal";
 import BuyToken from "./components/Modal/content/BuyToken";
 import SellToken from "./components/Modal/content/SellToken";
@@ -133,6 +134,7 @@ function App() {
   return (
     <div className="appContainer">
       <h1 className="title">NRDT Decentralized Exchange</h1>
+      <ConversionRate />
       {account ? (
         <div className="balanceContainer">
           <div className="balanceDiv">
@@ -167,7 +169,6 @@ function App() {
           </button>
         </div>
       ) : null}
-
       <Modal
         isOpen={isOpen}
         handleClose={() => setIsOpen(false)}
