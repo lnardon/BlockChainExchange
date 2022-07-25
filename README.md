@@ -1,34 +1,19 @@
-# BlockChain Exchange
+# [NRDT Decentralized Exchange](https://nrdt-token-exchange.web.app/ "NRDT Decentralized Exchange")
 
-A BlockChain exchange and a custom ERC-20 Token based on ethereum smart contracts.
-Inspired by UniSwap.
+A decentralized exchange and an ERC-20 token running on top of the Ethereum blockchain (Ropsten Test Net).
 
-## Disclaimer
+<p align="center">
+  <img style="width:100%" src="./demo.gif">
+</p>
 
-This is only a side project, NRDToken and the NRD BlockChain Exchange are not official products and don't have any real value.
+## [Access it here](https://nrdt-token-exchange.web.app/ "Homepage")
 
-## Installation
-
-Clone the repository
-
-```bash
-git clone https://github.com/lnardon/BlockChainExchange.git
-```
-
-Install the dependencies
-
-```bash
-npm install
-```
-
-To run this project locally you will also need [Ganache](https://www.trufflesuite.com/ganache "Ganache Official Website") installed on your computer ir order to run a local ethereum blockchain and also [Metamask](https://metamask.io/ "Metamask Official Website") to serve as your crypto wallet.
-
-## What was used on the project
+### What was used on the project
 
 - React
+- Typescript
 - Solidity
-- Ethereum Smart Contracts
-- TDD
-- Chai
-- Truffle
 - Web3
+- Github Action (Firebase deploy)
+- Firebase Hosting
+- Chai
