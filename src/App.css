@@ -86,22 +86,39 @@
   text-align: end;
 }
 
-.modalBtn {
-  padding: 0.5rem 1rem;
+.exchangeButtons {
+  display: flex;
+}
+
+.exchangeBtn {
+  padding: 0.75rem 1.5rem;
   font-weight: bold;
-  font-weight: 1rem;
+  font-size: 1rem;
   cursor: pointer;
   margin: 1rem;
   transition: all 0.3s ease;
+  background-color: #57ff62;
+  outline: none;
+  border-radius: 0.25rem;
+  border: none;
 }
 
-.modalBtn:hover {
-  transform: scale(1.1);
+.exchangeBtn:hover {
+  transform: scale(1.05);
 }
 
 @media (max-width: 699px) {
   .balanceContainer {
     padding: 1rem;
     width: min-content;
+  }
+}
+
+@media (max-width: 420px) {
+  .title {
+    font-size: 2.5rem;
+    line-height: 2.5rem;
+    padding: 0.5rem;
+    margin: 5rem 0rem 2rem 0rem;
   }
 }
