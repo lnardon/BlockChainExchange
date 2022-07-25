@@ -136,39 +136,42 @@ function App() {
       <h1 className="title">NRDT Decentralized Exchange</h1>
       <ConversionRate />
       {account ? (
-        <div className="balanceContainer">
-          <div className="balanceDiv">
-            <div className="balanceDivIcon">
-              <img className="balanceIcon" src={EthLogo} alt="Eth Logo" />
-              <h4 className="balanceLabel">Ethereum</h4>
+        <>
+          <h3 className="balanceTitle">Your balance:</h3>
+          <div className="balanceContainer">
+            <div className="balanceDiv">
+              <div className="balanceDivIcon">
+                <img className="balanceIcon" src={EthLogo} alt="Eth Logo" />
+                <h4 className="balanceLabel">Ethereum</h4>
+              </div>
+              <h3 className="balanceValue">
+                {ethBalance ? ethBalance.slice(0, 8) : "-"}
+              </h3>
             </div>
-            <h3 className="balanceValue">
-              {ethBalance ? ethBalance.slice(0, 7) : "-"}
-            </h3>
-          </div>
-          <div className="balanceDiv">
-            <div className="balanceDivIcon">
-              <img className="balanceIcon" src={NRDTLogo} alt="NRDT Logo" />
-              <h4 className="balanceLabel">NRD Token</h4>
+            <div className="balanceDiv">
+              <div className="balanceDivIcon">
+                <img className="balanceIcon" src={NRDTLogo} alt="NRDT Logo" />
+                <h4 className="balanceLabel">NRD Token</h4>
+              </div>
+              <h3 className="balanceValue">
+                {nrdtBalance ? nrdtBalance : "-"}
+              </h3>
             </div>
-            <h3 className="balanceValue">{nrdtBalance ? nrdtBalance : "-"}</h3>
           </div>
-        </div>
+          <div className="exchangeButtons">
+            <button className="exchangeBtn" onClick={() => handleModal(1)}>
+              Buy NRDT
+            </button>
+            <button className="exchangeBtn" onClick={() => handleModal(2)}>
+              Sell NRDT
+            </button>
+          </div>
+        </>
       ) : (
         <button className="connectWalletBtn" onClick={activate}>
-          Connect Wallet
+          Connect Metamask
         </button>
       )}
-      {account ? (
-        <div className="exchangeButtons">
-          <button className="exchangeBtn" onClick={() => handleModal(1)}>
-            Buy NRDT
-          </button>
-          <button className="exchangeBtn" onClick={() => handleModal(2)}>
-            Sell NRDT
-          </button>
-        </div>
-      ) : null}
       <Modal
         isOpen={isOpen}
         handleClose={() => setIsOpen(false)}

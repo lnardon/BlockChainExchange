@@ -10,10 +10,19 @@
   font-size: 3rem;
   line-height: 3.25rem;
   text-align: center;
-  padding: 5rem 2rem;
+  padding: 2rem;
   margin: 2rem 0rem;
   color: #57ff62;
   max-width: 600px;
+}
+
+.balanceTitle {
+  width: 100%;
+  color: #fafafa;
+  text-align: center;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+  font-size: 1.15rem;
 }
 
 .connectWalletBtn {
@@ -37,12 +46,13 @@
 
 .balanceContainer {
   display: flex;
-  padding: 2rem;
-  background-color: rgb(45, 45, 45);
+  padding: 1rem;
+  background-color: rgba(255, 255, 255, 0.055);
   border-radius: 0.25rem;
   margin-bottom: 2rem;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: space-between;
+  width: 100%;
 }
 
 .balanceDiv {
@@ -51,16 +61,16 @@
   justify-content: center;
   flex-direction: column;
   padding: 1rem;
-  background-color: #4b4b4b;
+  background-color: #1c1c1c;
   border-radius: 0.25rem;
   margin: 1rem;
-  border: 2px solid #fafafa;
+  border: 2px solid #dcdcdc;
   width: 225px;
 }
 
 .balanceDivIcon {
   width: 100%;
-  border-bottom: 1px solid #fafafa;
+  border-bottom: 1px solid #dcdcdc;
   margin-bottom: 1.25rem;
   padding-bottom: 0.5rem;
   display: flex;
@@ -75,7 +85,7 @@
   color: #fafafa;
   margin-left: 0.5rem;
   font-size: 1.25rem;
-  font-weight: 500;
+  font-weight: 300;
 }
 
 .balanceValue {

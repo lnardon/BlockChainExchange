@@ -5,7 +5,6 @@ import EthLogo from "../../assets/EthLogo.png";
 const ConversionRate: any = () => {
   return (
     <div className="conversionContainer">
-      <h1 className="conversionTitle">Conversion Rate</h1>
       <div className="conversionDiv">
         <div className="conversionCoin">
           <img className="conversionIcon" src={NRDTLogo} alt="" />

@@ -11,9 +11,20 @@
   line-height: 2rem;
   color: #fafafa;
   text-align: center;
+  width: 90%;
+  margin-bottom: 2rem;
 }
 
 .loader {
   width: 100px;
-  margin: 1rem 0rem;
+  margin-bottom: 2rem;
+}
+
+.waitMessage {
+  font-size: 1.125rem;
+  line-height: 1.25rem;
+  font-weight: 400;
+  text-align: center;
+  color: #fafafa;
+  width: 80%;
 }
