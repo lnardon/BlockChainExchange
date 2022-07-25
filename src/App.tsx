@@ -10,7 +10,7 @@ import Modal from "./components/Modal";
 import BuyToken from "./components/Modal/content/BuyToken";
 import SellToken from "./components/Modal/content/SellToken";
 import Processing from "./components/Modal/content/Processing";
-import NRDTLogo from "./assets/NRDTLogo.png";
+import NRDTLogo from "./assets/NRDTLogo.svg";
 import EthLogo from "./assets/EthLogo.png";
 
 declare global {

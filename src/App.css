@@ -27,20 +27,20 @@
 
 .connectWalletBtn {
   padding: 1rem 2rem;
-  background-color: #5b5df9;
+  background-color: #57ff62;
   cursor: pointer;
-  font-size: 1rem;
+  font-size: 1.125rem;
   font-weight: bold;
   border-radius: 0.25rem;
   border: 3px solid transparent;
   outline: none;
-  transition: all 0.4s ease;
+  transition: all 0.3s ease;
 }
 
 .connectWalletBtn:hover {
   transform: scale(1.05);
   background-color: transparent;
-  border: 3px solid #5b5df9;
+  border: 3px solid #57ff62;
   color: #fafafa;
 }
 

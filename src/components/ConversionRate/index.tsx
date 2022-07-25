@@ -1,5 +1,5 @@
 import "./styles.css";
-import NRDTLogo from "../../assets/NRDTLogo.png";
+import NRDTLogo from "../../assets/NRDTLogo.svg";
 import EthLogo from "../../assets/EthLogo.png";
 
 const ConversionRate: any = () => {
