@@ -158,16 +158,13 @@ function App() {
         </button>
       )}
       {account ? (
-        <div>
-          <div></div>
-          <div className="modalButtons">
-            <button className="modalBtn" onClick={() => handleModal(1)}>
-              Buy NRDT
-            </button>
-            <button className="modalBtn" onClick={() => handleModal(2)}>
-              Sell NRDT
-            </button>
-          </div>
+        <div className="exchangeButtons">
+          <button className="exchangeBtn" onClick={() => handleModal(1)}>
+            Buy NRDT
+          </button>
+          <button className="exchangeBtn" onClick={() => handleModal(2)}>
+            Sell NRDT
+          </button>
         </div>
       ) : null}
 

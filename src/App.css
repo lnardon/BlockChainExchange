@@ -86,7 +86,11 @@
   text-align: end;
 }
 
-.modalBtn {
+.exchangeButtons {
+  display: flex;
+}
+
+.exchangeBtn {
   padding: 0.75rem 1.5rem;
   font-weight: bold;
   font-size: 1rem;
@@ -99,7 +103,7 @@
   border: none;
 }
 
-.modalBtn:hover {
+.exchangeBtn:hover {
   transform: scale(1.05);
 }
 
@@ -107,5 +111,14 @@
   .balanceContainer {
     padding: 1rem;
     width: min-content;
+  }
+}
+
+@media (max-width: 420px) {
+  .title {
+    font-size: 2.5rem;
+    line-height: 2.5rem;
+    padding: 0.5rem;
+    margin: 5rem 0rem 2rem 0rem;
   }
 }
