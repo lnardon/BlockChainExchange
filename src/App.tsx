@@ -27,8 +27,8 @@ function App() {
   const [nrdtBalance, setNrdtBalance] = useState("");
   const [modalContentIndex, setModalContentIndex] = useState(7);
 
-  const contractAddress = "0xf78B6cC281A3856de0CDbFe3Ddfe992CC8ec6a73";
-  const nrdtAddress = "0xc4afF16D64e2508fc7338708BB31466154947596";
+  const contractAddress = "0x8ECDe2f42748c47785fb05A975bcf45A977b2e9B";
+  const nrdtAddress = "0xeb7D1F6F78a4bF64D6E758B4EB360EEC3B4833b8";
   const contractInteraction = new web3.eth.Contract(
     NRDTDEX.abi as AbiItem[],
     contractAddress
